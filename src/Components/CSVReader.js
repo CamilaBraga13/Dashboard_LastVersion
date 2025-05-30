@@ -63,7 +63,7 @@ export default function CSVReader() {
 
     const enviarParaApi = async (dados) => {
     try {
-      const response = await axios.post('http://localhost:5000/processar', dados);
+      const response = await axios.post('https://dashboard-backend-vf4t.onrender.com/processar', dados);
       console.log('Resposta da API:', response.data);
       setRespostaApi(response.data); // Armazena a resposta da API no estado
       console.log('Dados Recebidos da API:', respostaApi);
