@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import AnaliseGoodSpeed from "./AnaliseGoodSpeed";
 import CasasAbastecidas from "./CasasAbastecidas";
 import ArvoresSalvas from "./ArvoresSalvas";
 import AguaEconomizada from "./AguaEconomizada";
-
 import '../Styles/analise.css';
+
 
 function Analise() {
     let csvData = [];
