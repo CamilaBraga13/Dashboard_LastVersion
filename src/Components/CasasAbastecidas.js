@@ -1,9 +1,7 @@
 import React from "react";
 
-function CasasAbastecidas({ data }) {
+function CasasAbastecidas({ data, raioTurbina = 40, eficiencia = 0.4 }) {
   // Verifica se os dados são válidos
-
-  console.log("Dados recebidos no CasasAbastecidas:", data);
   if (!Array.isArray(data) || data.length === 0) {
     return (
       <div>
@@ -14,9 +12,7 @@ function CasasAbastecidas({ data }) {
   }
 
   const densidadeAr = 1.225; // kg/m³
-  const raioTurbina = 40; // Raio das pás da turbina em metros (exemplo: 40m)
   const area = Math.PI * Math.pow(raioTurbina, 2); // Área varrida pelas pás
-  const eficiencia = 0.4; // Eficiência da turbina (40%)
   const consumoPorCasa = 2000; // Consumo médio mensal por casa em kWh (exemplo)
 
   // Calcula a energia total gerada
@@ -36,25 +32,22 @@ function CasasAbastecidas({ data }) {
   // Calcula o número de casas abastecidas
   const casasAbastecidas = energiaTotalKWh / consumoPorCasa;
 
-  
-    return (
-      <div className="casas-abastecidas">
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <span style={{ fontSize: "2rem", marginRight: "10px" }} role="img" aria-label="Casa">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="#0742e6"><path d="M12 3l10 9h-3v9h-6v-6h-2v6H5v-9H2z"/></svg>
-          </span>
-          <h1>Casas Abastecidas</h1>
-        </div>
-        <div className="casas-abastecidas-container">
-          <div className="casas-abastecidas-text">
-            <p>Total de energia gerada: {energiaTotalKWh.toFixed(2)} kWh</p>
-            <p>Total de casas abastecidas: {casasAbastecidas.toFixed(0)}</p>
-          </div>
+  return (
+    <div className="casas-abastecidas">
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <span style={{ fontSize: "2rem", marginRight: "10px" }} role="img" aria-label="Casa">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="#0742e6"><path d="M12 3l10 9h-3v9h-6v-6h-2v6H5v-9H2z"/></svg>
+        </span>
+        <h1>Casas Abastecidas</h1>
+      </div>
+      <div className="casas-abastecidas-container">
+        <div className="casas-abastecidas-text">
+          <p>Total de energia gerada: {energiaTotalKWh.toFixed(2)} kWh</p>
+          <p>Total de casas abastecidas: {casasAbastecidas.toFixed(0)}</p>
         </div>
       </div>
-    );
-  
+    </div>
+  );
 }
 
 export default CasasAbastecidas;
-

@@ -1,6 +1,6 @@
 import React from "react";
 
-function AguaEconomizada({ data }) {
+function AguaEconomizada({ data, raioTurbina = 40, eficiencia = 0.4 }) {
   if (!Array.isArray(data) || data.length === 0) {
     return (
       <div>
@@ -12,9 +12,7 @@ function AguaEconomizada({ data }) {
 
   // Parâmetros para o cálculo
   const densidadeAr = 1.225; // kg/m³
-  const raioTurbina = 40; // metros
   const area = Math.PI * Math.pow(raioTurbina, 2);
-  const eficiencia = 0.4;
   const litrosPorMWh = 2000; // Exemplo: 2000 litros economizados por MWh gerado
 
   // Calcula energia total gerada (em Wh)
@@ -31,7 +29,6 @@ function AguaEconomizada({ data }) {
   const energiaTotalMWh = energiaTotal / 1_000_000; // converte Wh para MWh
   const aguaEconomizada = energiaTotalMWh * litrosPorMWh;
 
-
   return (
     <div className="agua-economizada">
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -47,7 +44,6 @@ function AguaEconomizada({ data }) {
       </div>
     </div>
   );
-
 }
 
 export default AguaEconomizada;

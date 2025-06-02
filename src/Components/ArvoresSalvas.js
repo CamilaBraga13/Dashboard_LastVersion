@@ -1,6 +1,6 @@
 import React from "react";
 
-function ArvoresSalvas({ data }) {
+function ArvoresSalvas({ data, raioTurbina = 40, eficiencia = 0.4 }) {
   if (!Array.isArray(data) || data.length === 0) {
     return (
       <div>
@@ -10,14 +10,11 @@ function ArvoresSalvas({ data }) {
     );
   }
 
-  // Parâmetros iguais ao CasasAbastecidas
   const densidadeAr = 1.225; // kg/m³
-  const raioTurbina = 40; // metros
   const area = Math.PI * Math.pow(raioTurbina, 2);
-  const eficiencia = 0.4;
   const kWhPorArvore = 500; // 1 árvore salva a cada 500 kWh
 
-  // Calcula energia total gerada (igual CasasAbastecidas)
+  // Calcula energia total gerada
   const energiaTotal = data.reduce((total, row) => {
     const velocidade = parseFloat(row.ws100);
     if (velocidade > 4) {
@@ -46,7 +43,6 @@ function ArvoresSalvas({ data }) {
       </div>
     </div>
   );
-
 }
 
 export default ArvoresSalvas;
