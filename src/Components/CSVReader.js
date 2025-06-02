@@ -113,7 +113,7 @@ export default function CSVReader() {
 
   return (
     <>
-      <CSVReader
+      {/* <CSVReader
           config={{ header: true }}
           onUploadAccepted={(results) => {
             // Mapeia cada linha para garantir os tipos corretos
@@ -131,11 +131,30 @@ export default function CSVReader() {
             }));
             setCsvData(dataPadronizada);
             enviarParaApi(dataPadronizada); // Envia para API já padronizado
-            console.log("AAAAA DATA PADRONZADA", csvData) // Log para verificar os dados carregados
-            console.log("AAAAA CSV DATA", csvData) // Log para verificar os dados carregados
-
+            
           }}
-      >
+      > */}
+        <CSVReader
+          config={{ header: false }}
+          onUploadAccepted={(results) => {
+            // Mapeamento manual dos índices:
+            // 0: id, 1: year, 2: month, 3: day, 4: hour, 5: minute, 6: ws100, 7: wdir100
+            const dataPadronizada = results.data
+              .filter(row => row[0] && row[6] && row[7])
+              .map(row => ({
+                id: row[0],
+                year: Number(row[1]),
+                month: Number(row[2]),
+                day: Number(row[3]),
+                hour: Number(row[4]),
+                minute: Number(row[5]),
+                ws100: Number(String(row[6]).replace(/"/g, "")),
+                wdir100: Number(String(row[7]).replace(/"/g, "")),
+              }));
+            setCsvData(dataPadronizada);
+            enviarParaApi(dataPadronizada);
+          }}
+        >
         {({ getRootProps, acceptedFile, ProgressBar, getRemoveFileProps }) => (
           <>
             <div style={{ display: "flex", flexDirection: "row", marginBottom: 10 }}>
