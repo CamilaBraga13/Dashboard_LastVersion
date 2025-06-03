@@ -53,7 +53,7 @@ function SerieSuavizada({ data }) {
         },
         yAxis: {
             title: {
-                text: 'Velocidade (ws100)',
+                text: 'Velocidade (m/s)',
             },
         },
         series: [{

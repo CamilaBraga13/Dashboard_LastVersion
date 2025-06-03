@@ -260,7 +260,7 @@ export default function CSVReader() {
                       window.open("/analise", "_blank");
                     }}
                   >
-                    Análise
+                    Potencial de Geração de Energia
                   </button>
                 </div>
               </div>

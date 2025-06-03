@@ -66,7 +66,7 @@ function Chart({ data }) {
             },
         },
         series: [{
-            name: 'Time',
+            name: 'Velocidade',
             data: chartData,  // Passa os dados formatados
             gapSize: 2, // Define o tamanho do gap
         }],

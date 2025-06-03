@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-import "../Styles/analise.css"; // Importe o arquivo CSS para estilização
+import "../Styles/analise.css";
 
-function AnaliseGoodSpeed({ data }) {
+function AnaliseGoodSpeed({ data, limiteVelocidade = 4 }) {
   const [chartOptions, setChartOptions] = useState(null);
   const [totalTime, setTotalTime] = useState(0);
 
@@ -15,7 +15,7 @@ function AnaliseGoodSpeed({ data }) {
       return;
     }
 
-    const filteredData = data.filter((row) => parseFloat(row.ws100) > 4);
+    const filteredData = data.filter((row) => parseFloat(row.ws100) > limiteVelocidade);
     const totalMinutes = filteredData.length * 10;
     const totalHours = totalMinutes / 60;
     const totalDays = Math.floor(totalHours / 24);
@@ -38,7 +38,7 @@ function AnaliseGoodSpeed({ data }) {
 
     setChartOptions({
       chart: { type: "column", zoomType: "x" },
-      title: { text: "Tempo por Dia com Velocidade > 4 m/s" },
+      title: { text: `   ` },
       xAxis: {
         categories: chartData.map((item) => item.date),
         title: { text: "Data" },
@@ -49,23 +49,50 @@ function AnaliseGoodSpeed({ data }) {
       },
       series: [
         {
+          name: `Tempo com velocidade > ${limiteVelocidade} m/s`,
           data: chartData.map((item) => item.time),
           color: "rgba(7, 94, 26, 0.6)",
         },
       ],
     });
-  }, [data]);
+  }, [data, limiteVelocidade]);
 
   return (
-    <div className="analisegoodspeed-container">
-      <h2>Tempo por Dia com Velocidade &gt; 4 m/s</h2>
-      <p>
-        <strong>Tempo total com velocidade &gt; 4 m/s:</strong> {totalTime}
+    <div className="analisegoodspeed-container" style={{
+      background: "#fff",
+      borderRadius: 12,
+      boxShadow: "0 2px 12px #e3e9f7",
+      padding: 20,
+      marginBottom: 24,
+      minWidth: 260,
+      // Removido maxWidth e margin: "0 auto" para manter a largura padrão anterior
+    }}>
+      <h2 style={{
+        color: "#0742e6",
+        fontWeight: 700,
+        fontSize: 20,
+        marginBottom: 10,
+        letterSpacing: "0.5px"
+      }}>
+        Tempo por Dia com Velocidade maior que {limiteVelocidade} m/s
+      </h2>
+      <p style={{
+        fontSize: 16,
+        color: "#222",
+        marginBottom: 12,
+        fontWeight: 500
+      }}>
+        <span style={{ color: "#1a237e" }}>
+          Tempo total com velocidade maior que {limiteVelocidade} m/s =
+        </span>{" "}
+        <b style={{ color: "#0742e6" }}>{totalTime}</b>
       </p>
       {chartOptions ? (
         <HighchartsReact highcharts={Highcharts} options={chartOptions} />
       ) : (
-        <p>Nenhum dado disponível para velocidades acima de 4 m/s.</p>
+        <p style={{ color: "#888", fontSize: 15, marginTop: 18 }}>
+          Nenhum dado disponível para velocidades acima de {limiteVelocidade} m/s.
+        </p>
       )}
     </div>
   );

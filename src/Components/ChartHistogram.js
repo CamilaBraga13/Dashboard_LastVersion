@@ -39,7 +39,7 @@ function ChartHistogram({ data }) {
         },
 
         xAxis: [{
-            title: { text: 'Valores de ws100' },
+            title: { text: 'Velocidade' },
             alignTicks: false
         }, {
             title: { text: 'Histograma' },

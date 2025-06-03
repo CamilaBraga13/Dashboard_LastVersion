@@ -75,13 +75,13 @@ const HeatMap = ({ data }) => {
       },
     },
     title: {
-      text: "Heatmap de Velocidade do Vento",
-      align: "left",
+      text: "Heatmap de Velocidade",
+      align: "center",
       x: 40,
     },
     subtitle: {
       text: "Variação de velocidade do vento ao longo do tempo",
-      align: "left",
+      align: "center",
       x: 40,
     },
     xAxis: {
@@ -97,7 +97,7 @@ const HeatMap = ({ data }) => {
     },
     yAxis: {
       title: {
-        text: null,
+        text: "Horas do Dia",
       },
       labels: {
         format: "{value}:00",

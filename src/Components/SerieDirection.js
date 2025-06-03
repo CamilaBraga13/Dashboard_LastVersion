@@ -48,11 +48,11 @@ function Chart({ data }) {
         },
         yAxis: {
             title: {
-                text: 'Direction',
+                text: 'Direção (Graus)',
             },
         },
         series: [{
-            name: 'Direction',
+            name: 'Direção',
             data: chartData,  // Passa os dados formatados (Padrao CSV)
         }],
     };

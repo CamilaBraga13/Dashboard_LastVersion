@@ -89,25 +89,28 @@ function StickPlot({ data }) {
     text: [`Data: ${d.id}<br>Vel média: ${velocidades[i].toFixed(2)}<br>Dir média: ${direcoes_graus[i].toFixed(1)}`]
   }));
 
-  const layout = {
-    title: "Stick Plot - Média por Hora (Paginado)",
-    xaxis: {
-      title: 'Hora',
-      tickvals: x0,
-      ticktext: pageData.map(d => d.id),
-      showgrid: false,
-      tickfont: { size: 8 },
+const layout = {
+  title: "Stick Plot - Média por Hora",
+  xaxis: {
+    title: 'Hora',
+    tickvals: x0,
+    ticktext: pageData.map(d => d.id),
+    showgrid: false,
+    tickfont: { size: 8 },
+  },
+  yaxis: {
+    title: {
+      text: 'Velocidade (m/s)',
+      font: { size: 12, color: '#222' }
     },
-    yaxis: {
-      title: 'Componente Y',
-      range: [-maxLen, maxLen],
-      showgrid: false
-    },
-    showlegend: false,
-    height: 450,
-    width: 1200,
-    margin: { l: 60, r: 30, t: 50, b: 120 }
-  };
+    range: [-maxLen, maxLen],
+    showgrid: false
+  },
+  showlegend: false,
+  height: 450,
+  width: 900, // ou "100%"
+  margin: { l: 90, r: 30, t: 50, b: 120 }
+};
 
   return (
   <div>
