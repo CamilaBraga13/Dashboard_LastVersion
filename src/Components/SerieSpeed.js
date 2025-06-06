@@ -46,7 +46,7 @@ function Chart({ data }) {
         title: {
             text: " ",
         },
-        colors: ['#123de6'],
+        colors: ['#000'],
         xAxis: {
             type: 'datetime', // Define o eixo X como um eixo de tempo
             title: {
@@ -72,17 +72,43 @@ function Chart({ data }) {
         }],
     };
 
-    return (
-        <div className='return'>
+    // return (
+    //     <div className='return' style={{ color: 'black' }}>
+    //         <h2>Série Temporal da Velocidade do Vento</h2>
+    //         {chartData.length > 0 ? (
+    //             <HighchartsReact highcharts={Highcharts} options={options} />
+    //         ) : (
+    //             <p>Carregando gráfico...</p>
+    //         )}
+    //     </div>
+    // );
+        return (
+        <div className='return' style={{ color: 'black' }}>
             <h2>Série Temporal da Velocidade do Vento</h2>
-            {chartData.length > 0 ? ( // Verifica se o CSV não está vazio (errado)
-                <HighchartsReact highcharts={Highcharts} options={options} /> // True
+            <div style={{
+                background: "#f7faff",
+                border: "1px solid #b3c8f9",
+                borderRadius: 8,
+                padding: "10px 16px",
+                marginBottom: 12,
+                color: "#0742e6",
+                fontSize: 15,
+                        marginLeft: "auto",      // Faz a caixa ir para a direita
+            textAlign: "right",      // Alinha o texto à direita
+            width: "fit-content"     // Só ocupa o necessário
+            }}>
+                <b>Dica:</b> Passe o mouse sobre o gráfico para ver os valores de cada ponto.<br />
+                Selecione uma área do gráfico para dar zoom.<br />
+                Clique em "Reset" para voltar à visualização completa.
+            </div>
+            {chartData.length > 0 ? (
+                <HighchartsReact highcharts={Highcharts} options={options} />
             ) : (
-                <p>Carregando gráfico...</p> // False
+                <p>Carregando gráfico...</p>
             )}
         </div>
     );
 }
-
+ 
 export default Chart;
 

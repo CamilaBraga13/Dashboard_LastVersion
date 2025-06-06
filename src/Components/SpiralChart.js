@@ -82,7 +82,7 @@ function SpiralChart({ data }) {
       scatter: {
         marker: {
           symbol: 'square',
-          radius: 4, // Diminua o tamanho dos pontos
+          radius: 8, // Diminua o tamanho dos pontos
         }
       }
     },
@@ -105,7 +105,7 @@ function SpiralChart({ data }) {
         colorKey: "colorValue",
         marker: { radius: 4 }, // Diminua aqui também
         dataLabels: {
-          enabled: true,
+          enabled: false,
           format: "{point.value:.2f}",
           style: { color: "#333", fontWeight: "bold", fontSize: "8px" },
         },

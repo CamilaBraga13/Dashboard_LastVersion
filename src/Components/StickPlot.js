@@ -83,7 +83,7 @@ function StickPlot({ data }) {
     mode: 'lines',
     x: [x0[i], x1[i]],
     y: [y0[i], y1[i]],
-    line: { color: '#fa9820', width: 2 },
+    line: { color: '#000', width: 2 },
     showlegend: false,
     hoverinfo: 'text',
     text: [`Data: ${d.id}<br>Vel média: ${velocidades[i].toFixed(2)}<br>Dir média: ${direcoes_graus[i].toFixed(1)}`]
@@ -93,10 +93,11 @@ const layout = {
   title: "Stick Plot - Média por Hora",
   xaxis: {
     title: 'Hora',
-    tickvals: x0,
-    ticktext: pageData.map(d => d.id),
+    // tickvals: x0,
+    // ticktext: pageData.map(d => d.id),
     showgrid: false,
     tickfont: { size: 8 },
+    showticklabels: false,
   },
   yaxis: {
     title: {
@@ -113,68 +114,86 @@ const layout = {
 };
 
   return (
-  <div>
-    <h2 style={{ textAlign: "center" }}>Stick Plot - Média por Hora</h2>
-    <Plot
-      data={lines}
-      layout={layout}
-      style={{ width: "100%", height: "100%" }}
-      config={{ responsive: true }}
-    />
-    <div style={{ marginTop: 18, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}>
-      <button
-        onClick={() => setPage(p => Math.max(p - 1, 0))}
-        disabled={page === 0}
+    <div>
+      <h2 style={{ textAlign: "center" }}>Stick Plot - Média por Hora</h2>
+      <div
         style={{
-          background: "#0742e6",
-          color: "#fff",
-          border: "none",
-          borderRadius: "50%",
-          width: 36,
-          height: 36,
-          fontSize: 22,
-          cursor: page === 0 ? "not-allowed" : "pointer",
-          opacity: page === 0 ? 0.5 : 1,
-          transition: "background 0.2s"
+          background: "#f7faff",
+          border: "1px solid #b3c8f9",
+          borderRadius: 8,
+          padding: "10px 16px",
+          marginBottom: 12,
+          color: "#0742e6",
+          fontSize: 15,
+          marginLeft: "auto",
+          textAlign: "right",
+          width: "fit-content"
         }}
-        title="Página anterior"
       >
-        &#8592;
-      </button>
-      <input
-        type="range"
-        min={0}
-        max={totalPages - 1}
-        value={page}
-        onChange={e => setPage(Number(e.target.value))}
-        style={{ width: 200 }}
+        <b>Dica:</b> Passe o mouse sobre os vetores para ver os valores de cada ponto.<br />
+        Selecione uma área do gráfico para dar zoom.<br />
+        Dê dois cliques na tela para voltar à visualização completa.
+      </div>
+      <Plot
+        data={lines}
+        layout={layout}
+        style={{ width: "100%", height: "100%" }}
+        config={{ responsive: true, displayModeBar: true, showTips: false }}
       />
-      <button
-        onClick={() => setPage(p => Math.min(p + 1, totalPages - 1))}
-        disabled={page === totalPages - 1}
-        style={{
-          background: "#0742e6",
-          color: "#fff",
-          border: "none",
-          borderRadius: "50%",
-          width: 36,
-          height: 36,
-          fontSize: 22,
-          cursor: page === totalPages - 1 ? "not-allowed" : "pointer",
-          opacity: page === totalPages - 1 ? 0.5 : 1,
-          transition: "background 0.2s"
-        }}
-        title="Próxima página"
-      >
-        &#8594;
-      </button>
+      <div style={{ marginTop: 18, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}>
+        <button
+          onClick={() => setPage(p => Math.max(p - 1, 0))}
+          disabled={page === 0}
+          style={{
+            background: "#061642",
+            color: "#fff",
+            border: "none",
+            borderRadius: "50%",
+            width: 36,
+            height: 36,
+            fontSize: 22,
+            cursor: page === 0 ? "not-allowed" : "pointer",
+            opacity: page === 0 ? 0.5 : 1,
+            transition: "background 0.2s"
+          }}
+          title="Página anterior"
+        >
+          &#8592;
+        </button>
+        <input
+          type="range"
+          min={0}
+          max={totalPages - 1}
+          value={page}
+          onChange={e => setPage(Number(e.target.value))}
+          style={{ width: 200 }}
+        />
+        <button
+          onClick={() => setPage(p => Math.min(p + 1, totalPages - 1))}
+          disabled={page === totalPages - 1}
+          style={{
+            background: "#061642",
+            color: "#fff",
+            border: "none",
+            borderRadius: "50%",
+            width: 36,
+            height: 36,
+            fontSize: 22,
+            cursor: page === totalPages - 1 ? "not-allowed" : "pointer",
+            opacity: page === totalPages - 1 ? 0.5 : 1,
+            transition: "background 0.2s"
+          }}
+          title="Próxima página"
+        >
+          &#8594;
+        </button>
+      </div>
+      <div style={{ marginTop: 2, textAlign: "center" }}>
+        <span style={{ minWidth: 90 }}>
+          Página <b>{page + 1}</b> de <b>{totalPages}</b>
+        </span>
+      </div>
     </div>
-    <div style={{ marginTop: 2, textAlign: "center" }}>
-      <span style={{ minWidth: 90 }}>
-        Página <b>{page + 1}</b> de <b>{totalPages}</b>
-      </span>
-    </div>
-  </div>
   );
 }
 

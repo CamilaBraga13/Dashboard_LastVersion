@@ -32,7 +32,7 @@ function Chart({ data }) {
         title: {
             text: " ",
         },
-        colors: ['#de6007'],
+        colors: ['#000'],
         xAxis: {
             type: 'datetime', // Define o eixo X como um eixo de tempo
             title: {
@@ -60,6 +60,24 @@ function Chart({ data }) {
     return (
         <div className='return'>
             <h2>Série Temporal da Direção do Vento</h2>
+            <div
+                style={{
+                    background: "#f7faff",
+                    border: "1px solid #b3c8f9",
+                    borderRadius: 8,
+                    padding: "10px 16px",
+                    marginBottom: 12,
+                    color: "#0742e6",
+                    fontSize: 15,
+                    marginLeft: "auto",      // Faz a caixa ir para a direita
+                    textAlign: "right",      // Alinha o texto à direita
+                    width: "fit-content"     // Só ocupa o necessário
+                }}
+            >
+                <b>Dica:</b> Passe o mouse sobre o gráfico para ver os valores de cada ponto.<br />
+                Selecione uma área do gráfico para dar zoom.<br />
+                Clique em "Reset" para voltar à visualização completa.
+            </div>
             {chartData.length > 0 ? ( // Verifica se o CSV não está vazio (errado)
                 <HighchartsReact highcharts={Highcharts} options={options} /> // True
             ) : (

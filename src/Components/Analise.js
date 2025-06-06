@@ -74,6 +74,7 @@ function Analise() {
                     }}
                 >
                     <label style={{ color: "#0742e6", fontWeight: 500 }}>
+                        Raio da turbina (m)  
                         <input
                             type="number"
                             value={raioTurbinaInput}
@@ -94,10 +95,10 @@ function Analise() {
                                 marginLeft: 0,
                                 transition: "border 0.2s"
                             }}
-                        />
-                        Raio da turbina (m)
+                            />
                     </label>
                     <label style={{ color: "#0742e6", fontWeight: 500 }}>
+                        Eficiência da turbina  
                         <input
                             type="number"
                             step="0.01"
@@ -121,9 +122,9 @@ function Analise() {
                                 transition: "border 0.2s"
                             }}
                         />
-                        Eficiência da turbina
                     </label>
                     <label style={{ color: "#0742e6", fontWeight: 500 }}>
+                        Velocidade mínima (m/s)  
                         <input
                             type="number"
                             step="0.01"
@@ -146,7 +147,6 @@ function Analise() {
                                 transition: "border 0.2s"
                             }}
                         />
-                        Velocidade mínima (m/s)
                     </label>
                     <button
                         style={{

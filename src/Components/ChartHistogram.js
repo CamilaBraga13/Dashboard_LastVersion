@@ -38,20 +38,25 @@ function ChartHistogram({ data }) {
             text: 'Histograma da Velocidade do Vento',
         },
 
-        xAxis: [{
-            title: { text: 'Velocidade' },
+        xAxis: [
+            {
+
+            title: { text: '  ' },
             alignTicks: false
-        }, {
-            title: { text: 'Histograma' },
+        }, 
+        {
+            title: { text: '  ' },
             alignTicks: false,
-            opposite: true
+            opposite: false
         }],
 
-        yAxis: [{
-            title: { text: 'Frequência' }
-        }, {
-            title: { text: 'Histograma' },
-            opposite: true
+        yAxis: [
+            {
+            title: { text: '  ' }
+        },
+        {
+            title: { text: '  ' },
+            opposite: false
         }],
 
         plotOptions: {
@@ -70,13 +75,13 @@ function ChartHistogram({ data }) {
 
         series: [
             {
-                name: 'Dados Brutos',
+                name: ' ',
                 type: 'line',
                 data: chartData, // Dados brutos de ws100
                 id: 'base',
-                color: 'orange',
+                color: 'white',
                 marker: {
-                    radius: 1.5
+                    radius: 0
                 },
                 visible: false // Ocultar a série de dados brutos
             },

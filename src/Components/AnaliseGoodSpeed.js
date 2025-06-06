@@ -51,7 +51,7 @@ function AnaliseGoodSpeed({ data, limiteVelocidade = 4 }) {
         {
           name: `Tempo com velocidade > ${limiteVelocidade} m/s`,
           data: chartData.map((item) => item.time),
-          color: "rgba(7, 94, 26, 0.6)",
+          color: "rgba(2, 19, 6, 0.6)",
         },
       ],
     });
@@ -99,3 +99,4 @@ function AnaliseGoodSpeed({ data, limiteVelocidade = 4 }) {
 }
 
 export default AnaliseGoodSpeed;
+
