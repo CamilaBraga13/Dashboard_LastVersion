@@ -91,3 +91,36 @@
     height: 100%;
     margin-top: 10px;
 } */
+
+
+/* Moderno para react-datepicker */
+.modern-datepicker {
+  border-radius: 12px !important;
+  border: 1.5px solid #b3c8f9 !important;
+  box-shadow: 0 4px 24px #e3e9f7 !important;
+  font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+  background: #fff !important;
+}
+.modern-datepicker .react-datepicker__header {
+  background: #f7faff !important;
+  border-bottom: 1px solid #b3c8f9 !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+.modern-datepicker .react-datepicker__current-month,
+.modern-datepicker .react-datepicker__day-name {
+  color: #0742e6 !important;
+  font-weight: 600;
+}
+.modern-datepicker .react-datepicker__day--selected,
+.modern-datepicker .react-datepicker__day--in-selecting-range,
+.modern-datepicker .react-datepicker__day--in-range {
+  background: linear-gradient(90deg, #0742e6 60%, #1a237e 100%) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+.modern-datepicker .react-datepicker__day:hover {
+  background: #b3c8f9 !important;
+  color: #0742e6 !important;
+  border-radius: 8px !important;
+}
+
