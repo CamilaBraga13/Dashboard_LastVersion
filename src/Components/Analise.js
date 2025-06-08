@@ -74,7 +74,7 @@ function Analise() {
                     }}
                 >
                     <label style={{ color: "#0742e6", fontWeight: 500 }}>
-                        Raio da turbina (m)  
+                        Raio da turbina (m):  
                         <input
                             type="number"
                             value={raioTurbinaInput}
@@ -92,13 +92,13 @@ function Analise() {
                                 outline: "none",
                                 boxShadow: "0 1px 4px #e3e9f7",
                                 marginRight: 8,
-                                marginLeft: 0,
+                                marginLeft: 5,
                                 transition: "border 0.2s"
                             }}
                             />
                     </label>
                     <label style={{ color: "#0742e6", fontWeight: 500 }}>
-                        Eficiência da turbina  
+                        Eficiência da turbina:  
                         <input
                             type="number"
                             step="0.01"
@@ -118,13 +118,13 @@ function Analise() {
                                 outline: "none",
                                 boxShadow: "0 1px 4px #e3e9f7",
                                 marginRight: 8,
-                                marginLeft: 0,
+                                marginLeft: 5,
                                 transition: "border 0.2s"
                             }}
                         />
                     </label>
                     <label style={{ color: "#0742e6", fontWeight: 500 }}>
-                        Velocidade mínima (m/s)  
+                        Velocidade mínima (m/s):  
                         <input
                             type="number"
                             step="0.01"
@@ -143,7 +143,7 @@ function Analise() {
                                 outline: "none",
                                 boxShadow: "0 1px 4px #e3e9f7",
                                 marginRight: 8,
-                                marginLeft: 0,
+                                marginLeft: 5,
                                 transition: "border 0.2s"
                             }}
                         />
@@ -151,7 +151,7 @@ function Analise() {
                     <button
                         style={{
                             height: 34,
-                            marginLeft: 12,
+                            marginLeft: 20,
                             background: "linear-gradient(90deg, #0742e6 60%, #1a237e 100%)",
                             color: "#fff",
                             border: "none",
@@ -161,7 +161,7 @@ function Analise() {
                             fontSize: 16,
                             padding: "0 22px",
                             boxShadow: "0 2px 8px #e3e9f7",
-                            transition: "background 0.2s"
+                            transition: "background 0.2s",                            
                         }}
                         onClick={atualizarParametros}
                     >
@@ -189,15 +189,22 @@ function Analise() {
                     fontSize: 15,
                     boxShadow: "0 2px 8px #e3e9f7",
                     textAlign: "center",
-                    maxWidth: 700,
+                    maxWidth: 800,
                     marginLeft: "auto",
                     marginRight: "auto"
                 }}
             >
-                <b>Parâmetros utilizados nos cálculos:</b><br />
+                {/* <b>Parâmetros utilizados nos cálculos:</b><br />
                 Raio da turbina: <b style={{ color: "#0742e6" }}>{raioTurbina} m</b> &nbsp;|&nbsp;
                 Eficiência: <b style={{ color: "#0742e6" }}>{eficiencia}</b> &nbsp;|&nbsp;
-                Velocidade mínima considerada: <b style={{ color: "#0742e6" }}>{limiteVelocidade} m/s</b>
+                Velocidade mínima considerada: <b style={{ color: "#0742e6" }}>{limiteVelocidade} m/s</b> */}
+                <b>Dados utilizado para realizar os cálculos:</b><br />
+                Raio da turbina: <b style={{ color: "#0742e6" }}>{raioTurbina} m</b> &nbsp;|&nbsp;
+                Eficiência: <b style={{ color: "#0742e6" }}>{eficiencia}</b> &nbsp;|&nbsp;
+                Velocidade mínima considerada: <b style={{ color: "#0742e6" }}>{limiteVelocidade} m/s</b> &nbsp;|&nbsp;
+                Densidade do ar: <b style={{ color: "#0742e6" }}>1.225 kg/m³</b> &nbsp;|&nbsp;
+                Área varrida pelas pás: <b style={{ color: "#0742e6" }}>{(Math.PI * Math.pow(raioTurbina, 2)).toFixed(2)} m²</b> &nbsp;|&nbsp;
+                Consumo médio mensal por casa: <b style={{ color: "#0742e6" }}>2000 kWh</b>
             </footer>
         </div>
     );

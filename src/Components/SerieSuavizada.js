@@ -82,7 +82,7 @@ function SerieSuavizada({ data }) {
             >
                 <b>Dica:</b> Passe o mouse sobre o gráfico para ver os valores de cada ponto.<br />
                 Selecione uma área do gráfico para dar zoom.<br />
-                Clique em "Reset" para voltar à visualização completa.
+                Clique em "Reset Zoom" para voltar à visualização completa.
             </div>
             {chartData.length > 0 ? ( // Verifica se o CSV não está vazio (errado)
                 <HighchartsReact highcharts={Highcharts} options={options} /> // True

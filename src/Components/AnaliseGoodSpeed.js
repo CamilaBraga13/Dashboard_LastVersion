@@ -76,6 +76,7 @@ function AnaliseGoodSpeed({ data, limiteVelocidade = 4 }) {
       }}>
         Tempo por Dia com Velocidade maior que {limiteVelocidade} m/s
       </h2>
+      
       <p style={{
         fontSize: 16,
         color: "#222",
@@ -87,6 +88,24 @@ function AnaliseGoodSpeed({ data, limiteVelocidade = 4 }) {
         </span>{" "}
         <b style={{ color: "#0742e6" }}>{totalTime}</b>
       </p>
+      <div
+                style={{
+                    background: "#f7faff",
+                    border: "1px solid #b3c8f9",
+                    borderRadius: 8,
+                    padding: "10px 16px",
+                    marginBottom: 12,
+                    color: "#0742e6",
+                    fontSize: 15,
+                    marginLeft: "auto",      // Faz a caixa ir para a direita
+                    textAlign: "right",      // Alinha o texto à direita
+                    width: "fit-content"     // Só ocupa o necessário
+                }}
+            >
+                <b>Dica:</b> Passe o mouse sobre o gráfico para ver os valores de cada ponto.<br />
+                Selecione uma área do gráfico para dar zoom.<br />
+                Clique em "Reset Zoom" para voltar à visualização completa.
+            </div>
       {chartOptions ? (
         <HighchartsReact highcharts={Highcharts} options={chartOptions} />
       ) : (
