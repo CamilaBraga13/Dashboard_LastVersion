@@ -81,9 +81,13 @@ function ChartHistogram({ data }) {
                 id: 'base',
                 color: 'white',
                 marker: {
-                    radius: 0
+                    radius: 0,
+                    enabled: false // Desabilitar marcadores para a série de dados brutos
+                    // desabilitar linha que corta o marcador 
+
                 },
-                visible: false // Ocultar a série de dados brutos
+                visible: false, // Ocultar a série de dados bruto
+                showInLegend: false // Não mostrar na legenda
             },
             {
                 name: 'Histograma',

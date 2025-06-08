@@ -91,12 +91,12 @@ function SpiralChart({ data }) {
         name: "Spiral",
         type: "line",
         data: spiralLine,
-        color: "gray",
+        color: "white",
         lineWidth: 1,
         enableMouseTracking: false,
         marker: { enabled: false },
-        showInLegend: true,
-        visible: false
+        showInLegend: false,
+        visible: true,
       },
       {
         name: "Data Points",
