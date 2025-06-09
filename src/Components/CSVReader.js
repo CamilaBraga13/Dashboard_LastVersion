@@ -456,6 +456,33 @@ export default function CSVReader() {
                     i
                   </span>
                 </span>
+                {/* <Slider
+                  value={speedRange}
+                  onChange={(event, newValue) => setSpeedRange(newValue)}
+                  valueLabelDisplay="auto"
+                  min={0}
+                  max={20}
+                  step={0.1}
+                  style={{ width: "140px", marginLeft: "0px" }}
+                  sx={{
+                    '& .MuiSlider-thumb': {
+                      width: 10,
+                      height: 16,
+                      backgroundColor: '#1a237e',
+                      border: '2px solid #1a237e',
+                      boxShadow: '0 1px 4px #e3e9f7',
+                    },
+                    '& .MuiSlider-thumb:hover, & .MuiSlider-thumb.Mui-focusVisible': {
+                      boxShadow: '0 0 0 8px rgba(7,66,230,0.16)',
+                    },
+                    '& .MuiSlider-track': {
+                      color: '#0742e6'
+                    },
+                    '& .MuiSlider-rail': {
+                      color: '#b3c8f9'
+                    }
+                  }}
+                /> */}
                 <Slider
                   value={speedRange}
                   onChange={(event, newValue) => setSpeedRange(newValue)}
@@ -483,6 +510,22 @@ export default function CSVReader() {
                     }
                   }}
                 />
+              <button
+                onClick={() => setSpeedRange([0, 20])}
+                style={{
+                  marginLeft: 8,
+                  background: "none",
+                  border: "none",
+                  boxShadow: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                  fontSize: 20,
+                  color: "#0742e6"
+                }}
+                title="Retornar filtro de velocidade ao valor inicial"
+              >
+                <img src={require('../img/undo.png')} alt="Retornar" style={{ width: 22, height: 22, display: "block" }} />
+              </button>
               </div>
             </div>
           </div>

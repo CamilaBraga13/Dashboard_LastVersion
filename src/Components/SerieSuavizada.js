@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Highcharts from 'highcharts';
+import Highcharts, { color } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import HighchartsExporting from 'highcharts/modules/exporting';
 
@@ -82,7 +82,8 @@ function SerieSuavizada({ data }) {
             >
                 <b>Dica:</b> Passe o mouse sobre o gráfico para ver os valores de cada ponto.<br />
                 Selecione uma área do gráfico para dar zoom.<br />
-                Clique em "Reset Zoom" para voltar à visualização completa.
+                Clique em "Reset Zoom" para voltar à visualização completa.<br />
+                <i style={{color:"#1a237e", fontSize: 12}}> ** Por conta do tamanho do CSV e dos cálculos necessários, este gráfico pode demorar a carregar.</i> 
             </div>
             {chartData.length > 0 ? ( // Verifica se o CSV não está vazio (errado)
                 <HighchartsReact highcharts={Highcharts} options={options} /> // True
