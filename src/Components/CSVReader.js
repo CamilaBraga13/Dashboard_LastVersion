@@ -101,15 +101,49 @@ export default function CSVReader() {
         if (speed < speedRange[0] || speed > speedRange[1]) {
           return false;
         }
+        // console.log("............................. linha filtrada", row);
         return true; // Inclui a linha se passar em todos os filtros
       })
       : csvData;
       
+
+    
+      const filteredSuavizada = respostaApi && (startDate || endDate || speedRange)
+      ? respostaApi.filter(row => {
+          const dateStr = row[0];
+          const value = parseFloat(row[1]);
+          const rowDate = new Date(dateStr);
+    
+          // Ajuste para comparar só a data (ignorando hora)
+          let start = startDate ? new Date(startDate) : null;
+          let end = endDate ? new Date(endDate) : null;
+          if (start) {
+            start.setHours(0,0,0,0);
+          }
+          if (end) {
+            end.setHours(23,59,59,999);
+          }
+    
+          if (start && rowDate < start) return false;
+          if (end && rowDate > end) return false;
+          if (isNaN(value) || value < speedRange[0] || value > speedRange[1]) return false;
+    
+          return true;
+        })
+      : respostaApi;
+
+
+
+
+
+
       useEffect(() => {
         console.log("Intervalo selecionado: ", startDate, " até ", endDate);
         console.log("Dados filtrados:", displayedData);
         console.log('Dados Recebidos da API:', respostaApi);
       }, [startDate, endDate, speedRange, displayedData]);
+            // Função para filtrar os dados suavizados
+
 
 
   return (
@@ -461,7 +495,7 @@ export default function CSVReader() {
                 <SerieSpeed data={displayedData}/>
               </div>
               <div className="chart-line">
-                <SerieSuavizada data={respostaApi} />
+                <SerieSuavizada data={filteredSuavizada} />
               </div>
               <div className="chart-line">
                 <SerieDirection data={displayedData} />
