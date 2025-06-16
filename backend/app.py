@@ -68,7 +68,7 @@ def processar_dados():
         df = pd.DataFrame(dados)
 
         # Calcula a média móvel e mantém os dados originais
-        df['ws100_suavizado'] = df['ws100'].rolling(window=5).mean().fillna(0)
+        df['ws100_suavizado'] = df['ws100'].rolling(window=6).mean().fillna(0)
 
 
 

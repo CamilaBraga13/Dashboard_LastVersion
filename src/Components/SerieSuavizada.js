@@ -36,7 +36,7 @@ function SerieSuavizada({ data }) {
             zoomType: 'x',
         },
         title: {
-            text: "Série Suavizada com Média Móvel de 5 Passos",
+            text: "Série Suavizada com Média Móvel de 6 Passos",
         },
         colors: ['#000'],
         xAxis: {

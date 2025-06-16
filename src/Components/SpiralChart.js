@@ -65,8 +65,8 @@ function SpiralChart({ data }) {
       height: 500,  // Diminua para caber melhor na tela
     },
     title: { text: "Espiral Contínua (1 volta = 1 mês)" },
-    xAxis: { title: { text: "X-axis" }, gridLineColor: "lightgray", gridLineWidth: 1 },
-    yAxis: { title: { text: "Y-axis" }, gridLineColor: "lightgray", gridLineWidth: 1 },
+    xAxis: { title: { text: " " }, gridLineColor: "lightgray", gridLineWidth: 1 },
+    yAxis: { title: { text: " " }, gridLineColor: "lightgray", gridLineWidth: 1 },
     colorAxis: {
       min: minValue,
       max: maxValue,
@@ -97,6 +97,7 @@ function SpiralChart({ data }) {
         marker: { enabled: false },
         showInLegend: false,
         visible: true,
+        
       },
       {
         name: "Data Points",
