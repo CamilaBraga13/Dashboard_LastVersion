@@ -13,7 +13,7 @@ function CasasAbastecidas({ data, raioTurbina = 40, eficiencia = 0.4 }) {
 
   const densidadeAr = 1.225; // kg/m³
   const area = Math.PI * Math.pow(raioTurbina, 2); // Área varrida pelas pás
-  const consumoPorCasa = 2000; // Consumo médio mensal por casa em kWh (exemplo)
+  const consumoPorCasa = 300; // Consumo médio mensal por casa em kWh (exemplo)
 
   // Calcula a energia total gerada
   const energiaTotal = data.reduce((total, row) => {
