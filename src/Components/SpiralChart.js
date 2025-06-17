@@ -97,7 +97,6 @@ function SpiralChart({ data }) {
         marker: { enabled: false },
         showInLegend: false,
         visible: true,
-        
       },
       {
         name: "Data Points",
