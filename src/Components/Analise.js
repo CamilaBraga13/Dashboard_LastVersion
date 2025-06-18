@@ -204,7 +204,7 @@ function Analise() {
                 Velocidade mínima considerada: <b style={{ color: "#0742e6" }}>{limiteVelocidade} m/s</b> &nbsp;|&nbsp;
                 Densidade do ar: <b style={{ color: "#0742e6" }}>1.225 kg/m³</b> &nbsp;|&nbsp;
                 Área varrida pelas pás: <b style={{ color: "#0742e6" }}>{(Math.PI * Math.pow(raioTurbina, 2)).toFixed(2)} m²</b> &nbsp;|&nbsp;
-                Consumo médio mensal por casa: <b style={{ color: "#0742e6" }}>2000 kWh</b>
+                Consumo médio mensal por casa: <b style={{ color: "#0742e6" }}>300 kWh</b>
             </footer>
         </div>
     );
